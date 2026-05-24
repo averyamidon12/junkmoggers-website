@@ -875,10 +875,10 @@ section{padding:100px 0}
               <div class="ci-t">Service Area</div>
               <div class="ci-v">Fredericksburg &amp; Surrounding</div>
               <div class="area-tags" style="margin:12px 0 0">
-                <div class="atag p">Fredericksburg</div>
-                <div class="atag">Stafford Co.</div>
-                <div class="atag">Spotsylvania Co.</div>
-                <div class="atag">King George Co.</div>
+                <div class="atag p" onclick="selectArea(this)">Fredericksburg</div>
+                <div class="atag" onclick="selectArea(this)">Stafford Co.</div>
+                <div class="atag" onclick="selectArea(this)">Spotsylvania Co.</div>
+                <div class="atag" onclick="selectArea(this)">King George Co.</div>
               </div>
             </div>
           </div>
@@ -1182,6 +1182,12 @@ if (qf) {
       } else { btn.textContent = 'Error — Please Call Us'; btn.disabled = false; }
     } catch (_) { btn.textContent = 'Error — Please Call Us'; btn.disabled = false; }
   });
+}
+
+/* ---- AREA TAG SELECTOR ---- */
+function selectArea(el) {
+  el.closest('.area-tags').querySelectorAll('.atag').forEach(t => t.classList.remove('p'));
+  el.classList.add('p');
 }
 
 /* ---- BOOT ---- */
